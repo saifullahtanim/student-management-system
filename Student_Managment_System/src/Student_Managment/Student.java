@@ -222,7 +222,9 @@ public class Student extends JFrame {
             if (ok==JOptionPane.YES_OPTION) {
                 saveDataToDisk();           // save before leaving
                 dispose();
-                new LoginWindow().setVisible(true);  // back to login window
+                dispose();
+                SwingUtilities.invokeLater(() -> new Login().setVisible(true));  // back to Login.java (2nd UI)
+
             }
         });
         logoutBox.add(accountLabel);
@@ -793,3 +795,4 @@ public class Student extends JFrame {
         SwingUtilities.invokeLater(() -> new LoginWindow().setVisible(true));
     }
 }
+
